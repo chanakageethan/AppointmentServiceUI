@@ -70,13 +70,14 @@ public class appointmetnsService {
 		String Aid = itemObject.get("Aid").getAsString();
 		String date = itemObject.get("date").getAsString();
 		String time = itemObject.get("time").getAsString();
-		String doctorid = itemObject.get("doctorid").getAsString();
-		String patientnic = itemObject.get("patientnic").getAsString();
+		String doctorid = itemObject.get("doctorId").getAsString();
+		String patientnic = itemObject.get("patientNic").getAsString();
 
 		String output = appointment.updateAppointment(Aid, date, time, doctorid, patientnic);
 		return output;
 	}
 
+	/*
 	// Confirm appointment
 	@RolesAllowed("admin")
 	@PUT
@@ -92,7 +93,7 @@ public class appointmetnsService {
 		String output = appointment.ConfirmAppointment(Aid);
 		return output;
 	}
-
+*/
 	/*
 	 * //Cancel appointment //@RolesAllowed({ "admin","patient" })
 	 * 
@@ -117,10 +118,11 @@ public class appointmetnsService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String cancelAppointments(String docData) {
+		System.out.println("Delete start");
 		JsonObject jsonObject = new JsonParser().parse(docData).getAsJsonObject();
-
-		String appID = jsonObject.get("appID").getAsString();
-
+		System.out.println("test 1"); //test
+		String appID = jsonObject.get("ID").getAsString();
+		System.out.println(appID);//test
 		String output = appointment.cancelAppointments(appID);
 
 		return output;

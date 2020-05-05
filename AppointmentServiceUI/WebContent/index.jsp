@@ -71,23 +71,7 @@
 					
 					
 					</div>
-					<!-- <table class="table table-striped" id="doctorTable">
-						<thead>
-							<tr>
-								<th>Full Name</th>
-								<th>Specialization</th>
-								<th>Email</th>
-								<th>Address</th>
-								<th>Charge</th>
-								<th>Working Hospital</th>
-								<th>Update</th>
-								<th>Remove</th>
-							</tr>
-						</thead>
-						<tbody>
-							
-						</tbody>
-					</table> -->
+					
 				</div>
 			</div>
 		</div>

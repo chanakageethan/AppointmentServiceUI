@@ -97,20 +97,44 @@ public class appointments {
 				String doctor = rs.getString("doctorid");
 				String patient = rs.getString("patientnic");
 				// Add into the html table
+				
+				/* correct code
 				output += "<tr><td>" + aid + "</td>";
 				output += "<td>" + date + "</td>";
 				output += "<td>" + time + "</td>";
 				output += "<td>" + status + "</td>";
 				output += "<td>" + doctor + "</td>";
 				output += "<td>" + patient + "</td>";
+				 */
+			
+				output += "<tr><td><input id='hidItemIDUpdate'"+ "name='hidItemIDUpdate' type='hidden' "+ "value='"+ aid + "'>"+aid +"</td>";
+				output += "<td>" + date + "</td>";
+				output += "<td>" + time + "</td>";
+				output += "<td>" + status + "</td>";
+				output += "<td>" + doctor + "</td>";
+				output += "<td>" + patient + "</td>";
+				
 				// buttons
-
+				
+			/*
 				output += "<td><input name=\"btnUpdate\" "
 						+ " type=\"button\" value=\"Update\"  class=\"btn btn-warning\"  ></td>"
 						+ "<td><form method=\"post\" action=\"items.jsp\">" + "<input name=\"btnRemove\" "
 						+ " type=\"submit\" value=\"Remove\"  class=\"btn btn-danger\"     >"
 						+ "<input name=\"itemID\" type=\"hidden\" " + " value=\"" + aid + "\">"
 						+ "</form></td></tr>";
+				*/
+				
+				
+				
+				 output += "<td><input name='btnUpdate' type='button' "
+					 		+ "value='Update'class='btnUpdate btn btn-secondary'></td> "
+					 		+ "<td><input name='btnRemove' type='button' value='Remove' "
+					 		+ "class='btnRemove btn btn-danger' data-itemid='" 
+							 + aid + "'>" + "</td></tr>";
+				
+				
+				
 
 			}
 			con.close();
@@ -184,10 +208,10 @@ public class appointments {
 			// execute the statement
 			preparedStmt.execute();
 			con.close();
-			output = "Deleted successfully";
+			output = "{\"status\":\"success\"}";
 
 		} catch (Exception e) {
-			output = "Error while cancelling the Appointment ";
+			output = "{\"status\":\"error\", \"data\": \"Error while inserting the item.\"}"; 
 			System.err.println(e.getMessage());
 		}
 

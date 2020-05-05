@@ -33,8 +33,7 @@ $(document).on("click","#btnSave",function(event) {
 	appointment["patientNic"] = formObj.find("#patientNic").val().trim()
 	
 
-	var type = ($("#hidItemIDSave").val() == "") ? "POST"
-			: "PUT";
+	var type = ($("#hidItemIDSave").val() == "") ? "POST": "PUT";
 	serviceUrl = "http://localhost:8082/appointmentService/appointmetnsService/appointments/"
 	if (type == "PUT") {
 		serviceUrl = "http://localhost:8082/appointmentService/appointmetnsService/appointments/"
@@ -59,28 +58,31 @@ $(document).on("click","#btnSave",function(event) {
 
 
 
-/*
+
 $(document).on("click",".btnUpdate",function(event) {
 	
 					$("#heading").text("Update Doctor");
+				
 					$("#hidItemIDSave").val($(this).closest("tr").find('#hidItemIDUpdate').val());
-					$("#dName").val($(this).closest("tr").find('td:eq(0)').text());
-					$("#dSpecialization").val($(this).closest("tr").find('td:eq(1)').text());
-					$("#dAddress").val($(this).closest("tr").find('td:eq(2)').text());
-					$("#dEmail").val($(this).closest("tr").find('td:eq(3)').text());
-					$("#dFee").val($(this).closest("tr").find('td:eq(4)').text());
-					$("#dWHospital").val($(this).closest("tr").find('td:eq(5)').text());
+					
+					
+					$("#date").val($(this).closest("tr").find('td:eq(1)').text());
+					
+					$("#time").val($(this).closest("tr").find('td:eq(2)').text());
+					$("#doctorId").val($(this).closest("tr").find('td:eq(4)').text());
+					$("#patientNic").val($(this).closest("tr").find('td:eq(5)').text());
+					
 					
 });
-*/
 
-/*
+
+
 $(document).on("click",".btnRemove",function(event) {
 	
 	var r = confirm("Do you want to delete this record");
 	if (r == true) {
 		
-		serviceUrl = "http://localhost:8082/DoctorService/DoctorService/Doctors/"
+		serviceUrl = "http://localhost:8082/appointmentService/appointmetnsService/appointments/"
 			
 			
 		$.ajax({
@@ -100,7 +102,7 @@ $(document).on("click",".btnRemove",function(event) {
 		});
 	}
 });
-*/
+
 
 
 function validateItemForm() {
