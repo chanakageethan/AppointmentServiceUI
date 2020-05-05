@@ -16,7 +16,9 @@ public class appointments {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/helthcaresystem", "root", "");
+			//con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/helthcaresystem", "root", "");
+			
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/helthcaresystem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
 			// For testing
 			System.out.print("Successfully connected");
 		} catch (Exception e) {
@@ -54,10 +56,10 @@ public class appointments {
 			preparedStmt.execute();
 			con.close();
 
-			output = "Appointment added successfully!!";
+			output = "{\"status\":\"success\"}";
 
 		} catch (Exception e) {
-			output = "Error while inserting";
+			output = "{\"status\":\"error\"}"; 
 			System.err.println(e.getMessage());
 
 		}

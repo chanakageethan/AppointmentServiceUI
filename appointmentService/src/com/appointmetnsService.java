@@ -39,9 +39,9 @@ public class appointmetnsService {
 	}
 
 	// Make appointment
-	@RolesAllowed({ "admin", "patient" })
+	@RolesAllowed("admin")
 	@POST
-	@Path("/add")
+	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String addDoctor(String docData) {
@@ -49,8 +49,8 @@ public class appointmetnsService {
 
 		String date = docObject.get("date").getAsString();
 		String time = docObject.get("time").getAsString();
-		String doctor = docObject.get("doctor").getAsString();
-		String patient = docObject.get("patient").getAsString();
+		String doctor = docObject.get("doctorId").getAsString();
+		String patient = docObject.get("patientNic").getAsString();
 
 		String output = appointment.makeAppointment(date, time, doctor, patient);
 
@@ -58,7 +58,7 @@ public class appointmetnsService {
 	}
 
 	// update appointment
-	@RolesAllowed({ "admin", "patient" })
+	@RolesAllowed("admin")
 	@PUT
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -111,7 +111,7 @@ public class appointmetnsService {
 
 	
 	//Cancel appointments
-	@RolesAllowed({ "admin", "patient" })
+	@RolesAllowed("admin")
 	@DELETE
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -127,7 +127,7 @@ public class appointmetnsService {
 	}
 
 	//Search appointments
-	@RolesAllowed({ "admin", "doctor" })
+	@RolesAllowed("admin")
 	@GET
 	@Path("/searchApp/{NIC}")
 	@Produces(MediaType.TEXT_PLAIN)
