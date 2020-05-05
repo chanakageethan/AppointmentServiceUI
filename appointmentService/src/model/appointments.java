@@ -211,7 +211,7 @@ public class appointments {
 			output = "{\"status\":\"success\"}";
 
 		} catch (Exception e) {
-			output = "{\"status\":\"error\", \"data\": \"Error while inserting the item.\"}"; 
+			output = "{\"status\":\"error\"}"; 
 			System.err.println(e.getMessage());
 		}
 

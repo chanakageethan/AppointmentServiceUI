@@ -50,8 +50,7 @@ $(document).on("click","#btnSave",function(event) {
 					+ btoa("admin" + ":" + "admin"));
 		},
 		complete : function(response, status) {
-			onItemSaveComplete(response.responseText,
-					status);
+			onItemSaveComplete(response.responseText,status);
 		}
 	});
 });
@@ -164,7 +163,7 @@ function onItemSaveComplete(response, status) {
 } 
 
 
-/*
+
 function onItemDeleteComplete(response, status) {
 	if (status == "success") {
 		var resultSet = JSON.parse(response);
@@ -186,7 +185,7 @@ function onItemDeleteComplete(response, status) {
 	refresh()
 }
 
-*/
+
 
 
 function refresh() {
