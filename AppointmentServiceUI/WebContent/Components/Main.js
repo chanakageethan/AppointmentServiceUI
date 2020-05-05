@@ -34,7 +34,12 @@ $(document).on("click","#btnSave",function(event) {
 	
 
 	var type = ($("#hidItemIDSave").val() == "") ? "POST": "PUT";
+
+	
 	serviceUrl = "http://localhost:8082/appointmentService/appointmetnsService/appointments/"
+		
+		
+		
 	if (type == "PUT") {
 		serviceUrl = "http://localhost:8082/appointmentService/appointmetnsService/appointments/"
 			appointment["Aid"] = $("#hidItemIDSave").val()
@@ -133,6 +138,31 @@ function validateItemForm() {
 
 
 
+
+
+
+function onItemDeleteComplete(response, status) {
+	if (status == "success") {
+		var resultSet = JSON.parse(response);
+		if (resultSet.status.trim() == "success") {
+			$("#alertSuccess").text("Successfully deleted.");
+			$("#alertSuccess").show();
+			$("#table").html(resultSet.data);
+		} else if (resultSet.status.trim() == "error") {
+			$("#alertError").text(resultSet.data);
+			$("#alertError").show();
+		}
+	} else if (status == "error") {
+		$("#alertError").text("Error while deleting.");
+		$("#alertError").show();
+	} else {
+		$("#alertError").text("Unknown error while deleting..");
+		$("#alertError").show();
+	}
+	refresh()
+}
+
+
 function onItemSaveComplete(response, status) {
 	if (status == "success") {
 		var resultSet = JSON.parse(response);
@@ -161,31 +191,6 @@ function onItemSaveComplete(response, status) {
 	
 	refresh();
 } 
-
-
-
-function onItemDeleteComplete(response, status) {
-	if (status == "success") {
-		var resultSet = JSON.parse(response);
-		if (resultSet.status.trim() == "success") {
-			$("#alertSuccess").text("Successfully deleted.");
-			$("#alertSuccess").show();
-			$("#table").html(resultSet.data);
-		} else if (resultSet.status.trim() == "error") {
-			$("#alertError").text(resultSet.data);
-			$("#alertError").show();
-		}
-	} else if (status == "error") {
-		$("#alertError").text("Error while deleting.");
-		$("#alertError").show();
-	} else {
-		$("#alertError").text("Unknown error while deleting..");
-		$("#alertError").show();
-	}
-	refresh()
-}
-
-
 
 
 function refresh() {

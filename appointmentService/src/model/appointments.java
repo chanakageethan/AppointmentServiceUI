@@ -181,9 +181,9 @@ public class appointments {
 			// execute the statement
 			preparedStmt.execute();
 			con.close();
-			output = "Updated successfully";
+			output = "{\"status\":\"success\"}";
 		} catch (Exception e) {
-			output = "Error while updating the Appointment";
+			output = "{\"status\":\"error\"}"; 
 			System.err.println(e.getMessage());
 		}
 		return output;
