@@ -10,12 +10,10 @@
 <script src="Components/jquery-3.3.1.min.js"></script>
 <script src="Components/Main.js"></script>
 
-
 </head>
 <body>
 		<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 		<ul class="navbar-nav">
-		
 	</ul>
 	</nav>
 
