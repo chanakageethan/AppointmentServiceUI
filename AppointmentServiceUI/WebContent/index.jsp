@@ -15,14 +15,10 @@
 <body>
 		<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 		<ul class="navbar-nav">
-		<li class="nav-item active"><a class="nav-link" href="#"></a></li>
-		<li class="nav-item"><a class="nav-link" href="#"></a>
-		</li>
+		
 	</ul>
 	</nav>
 
-
-	
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4">
