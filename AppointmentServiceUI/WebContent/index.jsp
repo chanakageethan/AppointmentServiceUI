@@ -28,8 +28,8 @@
 					Appointment ID:<input id="Aid" name="Aid" type="text"
 						class="form-control form-control-sm"> <br>
 				-->		
-					Date: <input id="date" name="date" type="text"
-						class="form-control form-control-sm"> <br>
+					<!--  Date: <input id="date" name="date" type="text"class="form-control form-control-sm"> <br> -->
+					Date:  <input class="form-control" type="date" class="form-control"id="date" name="date" >
 				
 					Time : <input id="time" name="time" type="text"
 						class="form-control form-control-sm"> <br>	
